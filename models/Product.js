@@ -95,3 +95,11 @@ module.exports = Product;
     // This is the specific attribute in the referenced model that
     // the foreign key is linked to. In this case, it's the 'id' field
     // in the Category model.
+    
+  //? Explanations
+  // When Sequelize creates the table, it will also create a foreign key 
+  // constraint in the database. This ensures that any value that you try to 
+  // insert into this field must correspond to a valid 'id' in the Category 
+  // table. If you try to insert a value that doesn't correspond to a valid 
+  // 'id', the database will reject the insert operation. This helps to 
+  // maintain the referential integrity of your data.
