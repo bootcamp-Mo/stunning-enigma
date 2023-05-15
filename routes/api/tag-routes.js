@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
       { tag_name: req.body.tag_name },
       { where: { tag_id: req.params.id } }
     ),
-      res.status(200).json({ message: "Tag updated successfully" })
+      res.status(200).json({ message: 'Tag updated successfully' })
   } catch (err) {
     res.status(500).json(err);
   }
@@ -65,11 +65,12 @@ router.delete('/:id', async (req, res) => {
       where: { id: req.params.id }
     });
     if (!tagData) {
-      res.status(404).json({ message: "No tag found with this id" })
+      res.status(404).json({ message: 'No tag found with this id' })
     }
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-module.exports = router; 
+module.exports = router;
+

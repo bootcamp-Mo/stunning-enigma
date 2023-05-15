@@ -1,12 +1,12 @@
 /* eslint-disable no-unexpected-multiline */
 /* eslint-disable no-undef */
-const router = require("express").Router();
-const { Product, Category, Tag, ProductTag } = require("../../models");
+const router = require('express').Router();
+const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
 
 // get all products
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
       include: [
@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 });
 
 // get one product
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
       include: [
@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
       ]
     })
     if (!productData) {
-      res.status(404).json({ message: "No product found with this id" })
+      res.status(404).json({ message: 'No product found with this id' })
       return
     }
     res.json(productData)
@@ -40,7 +40,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // create new product
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   Product.create(req.body)
     .then((productData) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -64,7 +64,7 @@ router.post("/", async (req, res) => {
 });
 
 // update product
-router.put("/:id", async (req, res) => {
+router.put('/:id', async (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -105,14 +105,14 @@ router.put("/:id", async (req, res) => {
     });
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
     const productData = await Product.destroy({
       where: { id: req.params.id, },
     })
     if (!productData) {
-      res.status(404).json({ message: "No product found with this id" });
+      res.status(404).json({ message: 'No product found with this id' });
       return;
     }
     res.json(productData);
@@ -183,14 +183,14 @@ module.exports = router;
         // } catch () {
         // }
 
-  //* try block 
+  //* try block
   // contains the code that may potentially throw an error.
 
-  // If there is an error inside the try block, it immediately switches to the catch 
+  // If there is an error inside the try block, it immediately switches to the catch
   // block, which is designed to handle the error.
 
-  //* catch block 
-  // In the catch block the error object is available, generally it's logged and some 
+  //* catch block
+  // In the catch block the error object is available, generally it's logged and some
   // sort of error message is sent back to the client.
 
         // catch (err) {
@@ -209,13 +209,13 @@ module.exports = router;
 /**------------------------------------------------------------------------
  * *                                Basic Delete route 
                                         I think
-router.delete("/:id", (req, res) => {
+router.delete('/:id', (req, res) => {
   try {
     const somethingData = await Something.destroy({
       where: { id: req.params.id, },
     })
     if (!somethingData) {
-      res.status(404).json({ message: "message about nothing connected to id" });
+      res.status(404).json({ message: 'message about nothing connected to id' });
       return;
     }
   } catch (err) {
