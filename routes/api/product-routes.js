@@ -119,30 +119,12 @@ module.exports = router;
 // of your route handler. The key thing to understand is that res.json() 
 // is used to end the response process and send the data back to the client.
 
-//* GET route:
-
-```
-router.get('/', async (req, res) => {
-  const productData = await Product.findAll({
-    include: [{ model: Category }, { model: Tag }],
-  });
-  res.json(productData);
-});
-```
-
   //? .findAll() 
   // is used to fetch all products from the database. This operation is asynchronous 
   // and returns a promise, so you need to await its completion before you can send 
   // the result back to the client. Therefore, res.json(productData) is placed after 
   // the await statement.
 
-  //* POST route:
-  ```
-router.post('/', async (req, res) => {
-  const newProduct = await Product.create(req.body);
-  res.json(newProduct);
-});
-```
 //? .create(req.body)
 // is used to create a new product in the database. This operation is also asynchronous 
 // and returns a promise, so you need to await its completion before you can send the 
