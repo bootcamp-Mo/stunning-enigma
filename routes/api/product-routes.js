@@ -1,22 +1,33 @@
-const router = require('express').Router();
-const { Product, Category, Tag, ProductTag } = require('../../models');
+/* eslint-disable no-undef */
+const router = require("express").Router();
+const { Product, Category, Tag, ProductTag } = require("../../models");
 
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
+router.get("/", (req, res) => {
+  const productData = await Product.findAll({
+    include: [
+      {
+        model: Category,
+
+      },
+      {
+        model: Tag,
+      },
+    ]
+  })
+  res.json(productData)
 });
 
 // get one product
-router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+router.get("/:id", (req, res) => {
+  const newProduct = await Product.create(req.body)
+  res.json(newProduct)
 });
 
 // create new product
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -48,7 +59,7 @@ router.post('/', (req, res) => {
 });
 
 // update product
-router.put('/:id', (req, res) => {
+router.put("/:id", (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -89,8 +100,52 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete("/:id", (req, res) => {
   // delete one product by its `id` value
 });
 
 module.exports = router;
+
+
+/**----------------------
+ *?    Info
+ *------------------------**/
+
+//  API routes in Express.js with Sequelize typically follow a 
+// certain structure where they define endpoints corresponding to 
+// CRUD (Create, Read, Update, Delete) operations. 
+
+// The placement of res.json() in your code depends on the logic 
+// of your route handler. The key thing to understand is that res.json() 
+// is used to end the response process and send the data back to the client.
+
+//* GET route:
+
+```
+router.get('/', async (req, res) => {
+  const productData = await Product.findAll({
+    include: [{ model: Category }, { model: Tag }],
+  });
+  res.json(productData);
+});
+```
+
+  //? .findAll() 
+  // is used to fetch all products from the database. This operation is asynchronous 
+  // and returns a promise, so you need to await its completion before you can send 
+  // the result back to the client. Therefore, res.json(productData) is placed after 
+  // the await statement.
+
+  //* POST route:
+  ```
+router.post('/', async (req, res) => {
+  const newProduct = await Product.create(req.body);
+  res.json(newProduct);
+});
+```
+//? .create(req.body)
+// is used to create a new product in the database. This operation is also asynchronous 
+// and returns a promise, so you need to await its completion before you can send the 
+// result back to the client.Therefore, res.json(newProduct) is also placed after the 
+// await statement in this route.
+// 

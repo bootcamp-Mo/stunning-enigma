@@ -30,7 +30,7 @@ module.exports = Category;
 
 
 /**-----------------------
- * ?       INFO
+ * ?       Info
  *------------------------**/
 // ? id: 
 // This is the primary key for the Category table. It is of type 

@@ -56,7 +56,7 @@ module.exports = Product;
 
 
 /**----------------------
- *?    QUESTION HEADER
+ *?    Info
  *------------------------**/
 
 //? validate:
