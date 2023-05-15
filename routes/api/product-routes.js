@@ -178,11 +178,11 @@ module.exports = router;
 // It's especially useful when dealing with asynchronous code (like database operations), 
 // where errors are likely to occur due to external factors such as network issues, 
 // database unavailability, etc.
-```
-        try {
-        } catch () {
-        }
-        ```
+
+        // try {
+        // } catch () {
+        // }
+
   //* try block 
   // contains the code that may potentially throw an error.
 
@@ -193,11 +193,10 @@ module.exports = router;
   // In the catch block the error object is available, generally it's logged and some 
   // sort of error message is sent back to the client.
 
-  ```
-        catch (err) {
-          res.status(errorCode 404 ).json(err);
-        }
-  ```
+        // catch (err) {
+        //   res.status(errorCode 404 ).json(err);
+        // }
+
   //? status codes
   // Informational responses (100 – 199)
   // Successful responses (200 – 299)
