@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
 // import models
+const sequelize = require('../config/connection');
+
 const Product = require('./Product');
 const Category = require('./Category');
 const Tag = require('./Tag');
@@ -28,6 +30,14 @@ Tag.belongsToMany(Product, {
   through: ProductTag,
   as: 'products',
 })
+
+// Sync sequelize models to the database
+sequelize.sync({ force: false }).then(() => {
+  // Start the server
+  app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}!`);
+  });
+});
 
 module.exports = {
   Product,
