@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 // import models
 const sequelize = require('../config/connection');
 
@@ -31,47 +30,10 @@ Tag.belongsToMany(Product, {
   as: 'products',
 })
 
-// Sync sequelize models to the database
-sequelize.sync({ force: false }).then(() => {
-  // Start the server
-  app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}!`);
-  });
-});
-
 module.exports = {
   Product,
   Category,
   Tag,
   ProductTag,
+  sequelize, // add this line
 };
-
-/**======================
- *?    Info
- *========================**/
-
-//? Product.belongsTo(Category) 
-// creates a relationship where a Product can belong to one 
-// Category. This inserts a category_id foreign key in the 
-// Product table.
-
-//? Category.hasMany(Product) 
-// creates a relationship where a Category can have multiple 
-// Products.
-
-//? onDelete: 'CASCADE' means that when a Category is deleted, 
-// all associated Products will also be deleted.
-
-//? Product.belongsToMany(Tag, { through: ProductTag }) 
-// creates a relationship where a Product can have multiple Tags. 
-// The through option tells Sequelize to use the ProductTag model 
-// to create this many-to-many relationship.
-
-//? Tag.belongsToMany(Product, { through: ProductTag }) 
-// creates a relationship where a Tag can have multiple Products. 
-// It also uses the ProductTag model to create this many-to-many 
-// relationship.
-
-//? as:
-// option is used to provide an alias for this association, which 
-// can be used in eager loading and other Sequelize methods.
