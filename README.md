@@ -34,3 +34,7 @@ Questions? Feel free to reach out through the following channels:
 - [GitHub](https://github.com/bootcamp-mo)
 - Email: mo.sherred@gmail.com 
 
+
+
+[walkthrough](https://github.com/bootcamp-Mo/stunning-enigma/assets/122568039/3a6f1ae5-5471-4f16-b612-25147f5b518f)
+
