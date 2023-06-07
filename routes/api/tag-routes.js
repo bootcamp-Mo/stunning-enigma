@@ -58,17 +58,28 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+
 router.delete('/:id', async (req, res) => {
-  // delete on tag by its `id` value
+  // delete a category by its `id` value
+  console.log('Attempting to delete tag:', req.params.id);
   try {
     const tagData = await Tag.destroy({
       where: { id: req.params.id }
-    });
+    })
+
+    console.log('Deletion response:', tagData);
+
     if (!tagData) {
-      res.status(404).json({ message: 'No tag found with this id' })
+      console.log('No tag with this id:', req.params.id);
+      res.status(404).json({ message: 'No tag with this id' })
+      return;
     }
+
+    console.log('Tag deleted successfully:', req.params.id);
+    res.status(200).json({ message: 'Tag deleted successfully.' })
   } catch (err) {
-    res.status(500).json(err);
+    console.error('Error during deletion:', err);
+    res.status(500).json(err)
   }
 });
 

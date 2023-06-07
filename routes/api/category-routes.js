@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
@@ -58,14 +59,24 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
+  console.log('Attempting to delete category:', req.params.id);
   try {
     const categoryData = await Category.destroy({
       where: { id: req.params.id }
     })
+
+    console.log('Deletion response:', categoryData);
+
     if (!categoryData) {
+      console.log('No category with this id:', req.params.id);
       res.status(404).json({ message: 'No Category with this id' })
+      return;
     }
+
+    console.log('Category deleted successfully:', req.params.id);
+    res.status(200).json({ message: 'Category deleted successfully.' })
   } catch (err) {
+    console.error('Error during deletion:', err);
     res.status(500).json(err)
   }
 });

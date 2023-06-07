@@ -2,8 +2,15 @@
 
 ## Object-Relational Mapping (ORM): E-Commerce Back End
 
+## Your Task
 
-### User Story
+Internet retail, also known as **e-commerce**, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit you as a full-stack web developer.
+
+Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
+
+Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met. You’ll need to submit a link to the video and add it to the readme of your project.
+
+## User Story
 
 ```md
 AS A manager at an internet retail company
@@ -11,7 +18,7 @@ I WANT a back end for my e-commerce website that uses the latest technologies
 SO THAT my company can compete with other e-commerce companies
 ```
 
-### Acceptance Criteria
+## Acceptance Criteria
 
 ```md
 GIVEN a functional Express.js API
@@ -26,35 +33,3 @@ THEN the data for each of these routes is displayed in a formatted JSON
 WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete data in my database
 ```
-
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
-## Installation
-To install necessary dependencies, run the following command:
-```
-npm i
-```
-## Usage
-To use this application, run the following command:
-```
-node server.js
-```
-## License
-This project is licensed under the MIT license.
-## Contributing
-To contribute to this project, please email me at tugrp@example.com
-## Tests
-To run tests, run the following command:
-```
-npm test
-```
-## Questions
-If you have any questions about the repo, open an issue or contact me directly at tugrp@example.com. You can find more of my work at [jonah-miller](https://github.com/jonah-miller).
-## Screenshots
-![Screenshot of MySQL Schema](./assets/images/screenshot.png)
-![Screenshot of MySQL Seeds](./assets/images/screenshot2.png)
