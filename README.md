@@ -36,5 +36,5 @@ Questions? Feel free to reach out through the following channels:
 
 
 
-[walkthrough](https://github.com/bootcamp-Mo/stunning-enigma/assets/122568039/3a6f1ae5-5471-4f16-b612-25147f5b518f)
+[walkthrough](https://github.com/bootcamp-Mo/stunning-enigma/assets/122568039/09e1fcf4-3bae-458a-9bcb-2b13dfc808ff)
 
